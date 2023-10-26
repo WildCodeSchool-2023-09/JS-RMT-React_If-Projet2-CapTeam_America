@@ -4,6 +4,13 @@ import logo from "./assets/logo.svg";
 import "./App.css";
 
 function App() {
+  const getAllItems = () => {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/items`)
+      .then((response) => response.json())
+      .then((data) => console.info(data))
+      .catch((err) => console.error(err));
+  };
+  getAllItems();
   return (
     <div className="App">
       <header className="App-header">
