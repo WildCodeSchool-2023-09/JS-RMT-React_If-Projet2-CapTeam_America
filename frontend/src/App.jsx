@@ -1,3 +1,4 @@
+import axios from "axios";
 import Counter from "./components/Counter";
 import logo from "./assets/logo.svg";
 
@@ -5,9 +6,9 @@ import "./App.css";
 
 function App() {
   const getAllItems = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/superhero`)
-      .then((response) => response.json())
-      .then((data) => console.info(data))
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/superhero`)
+      .then((response) => console.info(response))
       .catch((err) => console.error(err));
   };
   getAllItems();
