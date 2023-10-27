@@ -5,7 +5,7 @@ import "./App.css";
 
 function App() {
   const getAllItems = () => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/items`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/superhero`)
       .then((response) => response.json())
       .then((data) => console.info(data))
       .catch((err) => console.error(err));
