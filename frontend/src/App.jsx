@@ -1,47 +1,30 @@
 import axios from "axios";
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
+import { useState } from "react";
 
 import "./App.css";
 
 function App() {
-  const getAllItems = () => {
+  const [superheros, setSuperHeros] = useState([]);
+
+  const getAllSuperheros = () => {
     axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/superhero`)
-      .then((response) => console.info(response))
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
+      .then((response) => setSuperHeros(response.data[0]))
       .catch((err) => console.error(err));
   };
-  getAllItems();
+  getAllSuperheros();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
-
-        <Counter />
-
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+        <h1>Super Heros</h1>
+        {superheros.map((hero) => (
+          <div key={hero.name}>
+            <img src={hero.image_sm} alt={hero.name} />
+            <h2>{hero.name}</h2>
+            <p>{hero.race}</p>
+          </div>
+        ))}
       </header>
     </div>
   );

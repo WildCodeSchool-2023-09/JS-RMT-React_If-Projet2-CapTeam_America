@@ -8,7 +8,7 @@ const client = require("../database/client");
 /* ************************************************************************* */
 
 // Route to get a list of superhero
-router.get("/superhero", (req, res) => {
+router.get("/superheros", (req, res) => {
   client
     .query("SELECT * FROM superhero")
     .then((result) => res.status(200).json(result))
