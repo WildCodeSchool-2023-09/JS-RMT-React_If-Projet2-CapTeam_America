@@ -8,9 +8,18 @@ const client = require("../database/client");
 /* ************************************************************************* */
 
 // Route to get a list of superhero
+
 router.get("/superheros", (req, res) => {
+  let url = "SELECT * FROM superhero";
+  const values = [];
+
+  if (req.query.limit) {
+    url += " LIMIT ?";
+    values.push(+req.query.limit);
+  }
+
   client
-    .query("SELECT * FROM superhero")
+    .query(url, values)
     .then((result) => res.status(200).json(result))
     .catch((error) => {
       console.error(error);
