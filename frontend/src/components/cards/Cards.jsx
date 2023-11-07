@@ -8,12 +8,12 @@ function Cards({ hero }) {
     <div key={hero.slug} className="cardHero">
       <img src={hero.image_sm} alt={hero.name} className="imgCard" />
       <div className="containerNameRace">
-        <p id="titleName">{hero.name.toUpperCase()}</p>
-        <p id="titleRace">{hero.race}</p>
+        <p className="titleName">{hero.name.toUpperCase()}</p>
+        <p className="titleRace">{hero.race}</p>
       </div>
       <div className="containerButtons">
         <img src={elipseFavoris} alt="Ellipse Favoris" />
-        <img src={elipsePoing} alt="Ellipse Poing" id="poing" />
+        <img src={elipsePoing} alt="Ellipse Poing" className="poing" />
         <img src={elipsePoints} alt="Ellipse Points" />
       </div>
     </div>

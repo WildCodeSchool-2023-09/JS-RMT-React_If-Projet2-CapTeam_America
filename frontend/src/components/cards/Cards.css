@@ -20,19 +20,19 @@
   height: 50.325px;
   background-color: rgba(255, 255, 255, 0.4);
   position: relative;
-  top: -68px;
+  top: -66px;
   border-radius: 10px;
   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.75));
 }
 
-p#titleName {
+p.titleName {
   font-family: Sigmar One;
   font-size: 15px;
   margin-bottom: 0;
   padding-top: 7px;
 }
 
-p#titleRace {
+p.titleRace {
   margin-top: 5px;
 }
 
@@ -59,7 +59,7 @@ p#titleRace {
   height: auto;
 }
 
-#poing {
+.containerButtons .poing {
   width: 45px;
   padding-top: 20px;
 }
