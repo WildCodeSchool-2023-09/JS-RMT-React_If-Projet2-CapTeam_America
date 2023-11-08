@@ -28,15 +28,28 @@ router.get("/superheros", (req, res) => {
 });
 
 // Route to get a specific item by ID
-// router
-//   .get("/items/:id", (req, res) => {
-//     res.send("Hello World!");
-//   })
-//   .then((result) => res.status(200).json(result[0]))
-//   .catch((error) => {
-//     console.error(error);
-//     res.sendStatus(500);
-//   });
+router.get("/superheros/:id", (req, res) => {
+  let url = "SELECT * FROM superhero";
+  const values = [];
+
+  if (req.query.id) {
+    url += " WHERE id=?";
+    values.push(+req.query.id);
+  }
+  client
+    .query(url, values)
+    .then(([superhero]) => {
+      if (superhero[0][0] != null) {
+        res.json(superhero[0][0]);
+      } else {
+        res.sendStatus(404);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+});
 
 // // Route to add a new item
 // router
