@@ -20,7 +20,7 @@ router.get("/superheros", (req, res) => {
 
   client
     .query(url, values)
-    .then((result) => res.status(200).json(result))
+    .then((result) => res.status(200).json(result[0]))
     .catch((error) => {
       console.error(error);
       res.sendStatus(500);

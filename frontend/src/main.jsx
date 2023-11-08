@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         .get(
           `${import.meta.env.VITE_BACKEND_URL}/api/superheros?limit=${count}`
         )
-        .then((response) => response.data[0])
+        .then((response) => response.data)
         .catch((err) => console.error(err));
     },
   },
