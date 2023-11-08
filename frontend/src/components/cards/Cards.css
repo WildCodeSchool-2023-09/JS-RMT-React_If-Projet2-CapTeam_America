@@ -1,0 +1,77 @@
+.cardHero {
+  display: inline-block;
+  width: 169px;
+  height: 267px;
+  border-radius: 9px;
+  background: #fff;
+  box-shadow: 0px 0px 9px 4px rgba(0, 0, 0, 0.71);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.imgCard {
+  border-radius: 10px;
+  width: 169px;
+  height: 221px;
+}
+
+.containerNameRace {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 169px;
+  height: 50.325px;
+  background-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  top: -54px;
+  border-radius: 10px;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.75));
+}
+
+p.titleName {
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+p.titleRace {
+  margin-top: 5px;
+}
+
+.containerNameRace p {
+  width: auto;
+  color: #fff;
+  font-family: Jockey One;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+
+.containerButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  top: -55px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  height: 35px;
+}
+
+.buttonFist {
+  height: 50px;
+}
+
+.containerButtons img {
+  width: 37px;
+  height: auto;
+}
+
+.containerButtons .fist {
+  width: 45px;
+  padding-top: 10px;
+}

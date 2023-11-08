@@ -7,10 +7,19 @@ const client = require("../database/client");
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Route to get a list of items
-router.get("/items", (req, res) => {
+// Route to get a list of superhero
+
+router.get("/superheros", (req, res) => {
+  let url = "SELECT * FROM superhero";
+  const values = [];
+
+  if (req.query.limit) {
+    url += " LIMIT ?";
+    values.push(+req.query.limit);
+  }
+
   client
-    .query("SELECT * FROM item")
+    .query(url, values)
     .then((result) => res.status(200).json(result[0]))
     .catch((error) => {
       console.error(error);
