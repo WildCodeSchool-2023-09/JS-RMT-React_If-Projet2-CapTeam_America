@@ -19,7 +19,7 @@ function Cards({ hero }) {
         <button type="button" className="buttonFist">
           <img src={elipseFist} alt="Ellipse Fist" className="fist" />
         </button>
-        <button type="button" onClick={CompleteCard(hero.id)}>
+        <button type="button" onClick={<CompleteCard heroId={hero.id} />}>
           <img src={elipsePoints} alt="Ellipse Points" />
         </button>
       </div>
