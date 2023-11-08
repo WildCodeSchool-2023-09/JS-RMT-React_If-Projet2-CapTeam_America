@@ -14,7 +14,7 @@ code {
 
 .App {
   text-align: center;
-  background-image: url("./assets/background-hero.png");
+  background-image: url("../public/background-hero.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -26,7 +26,7 @@ code {
 
 @media screen and (min-width: 765px) {
   .App {
-    background-image: url("./assets/background-desktop.png");
+    background-image: url("../public/background-desktop.png");
   }
 }
 
