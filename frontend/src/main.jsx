@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import CompleteCard from "./components/completeCard/completeCardMobile";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,16 @@ const router = createBrowserRouter([
         .get(
           `${import.meta.env.VITE_BACKEND_URL}/api/superheros?limit=${count}`
         )
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
+  },
+  {
+    path: "/:id",
+    element: <CompleteCard />,
+    loader: () => {
+      return axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros?:id`)
         .then((response) => response.data)
         .catch((err) => console.error(err));
     },
