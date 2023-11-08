@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     loader: () => {
       return axios
         .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros?:id`)
-        .then((response) => response.data)
+        .then((response) => response.data[0])
         .catch((err) => console.error(err));
     },
   },
