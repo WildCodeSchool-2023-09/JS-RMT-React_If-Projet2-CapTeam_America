@@ -30,13 +30,15 @@ img {
   position: relative;
   top: -90px;
   text-align: left;
+  font-family: Jockey One;
 }
 
 .superHeroName {
-  color: white;
+  color: #fff;
   font-size: 20px;
   font-weight: 400;
   margin-left: 5px;
+  padding-top: 10px;
 }
 
 .superHeroRace {

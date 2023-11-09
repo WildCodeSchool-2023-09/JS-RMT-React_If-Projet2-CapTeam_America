@@ -1,5 +1,6 @@
 import React from "react";
 import "./completeCardMobile.css";
+import "./completeCardDesktop.css";
 import { useLoaderData } from "react-router-dom";
 import intelligence from "../../assets/intelligence.png";
 import strength from "../../assets/strength.png";
