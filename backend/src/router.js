@@ -29,18 +29,13 @@ router.get("/superheros", (req, res) => {
 
 // Route to get a specific item by ID
 router.get("/superheros/:id", (req, res) => {
-  let url = "SELECT * FROM superhero";
-  const values = [];
+  const id = +req.params.id;
 
-  if (req.query.id) {
-    url += " WHERE id=?";
-    values.push(+req.query.id);
-  }
   client
-    .query(url, values)
+    .query("select * from superhero where id = ?", [id])
     .then(([superhero]) => {
-      if (superhero[0][0] != null) {
-        res.json(superhero[0][0]);
+      if (superhero[0] != null) {
+        res.json(superhero[0]);
       } else {
         res.sendStatus(404);
       }
