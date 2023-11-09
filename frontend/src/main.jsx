@@ -23,10 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/:id",
     element: <CompleteCard />,
-    loader: () => {
+    loader: ({ params }) => {
       return axios
-        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros?:id`)
-        .then((response) => response.data[0])
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros/${params.id}`)
+        .then((response) => response.data)
         .catch((err) => console.error(err));
     },
   },
