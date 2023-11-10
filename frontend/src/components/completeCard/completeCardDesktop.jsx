@@ -1,5 +1,5 @@
 import React from "react";
-import "./completeCardMobile.css";
+import "./CompleteCardDesktop.css";
 import { useLoaderData } from "react-router-dom";
 import intelligence from "../../assets/intelligence.png";
 import strength from "../../assets/strength.png";
@@ -8,7 +8,7 @@ import durability from "../../assets/durability.png";
 import power from "../../assets/power.png";
 import combat from "../../assets/combat.png";
 
-function CompleteCard() {
+function CompleteCardDesktop() {
   const oneSuperHero = useLoaderData();
   return (
     <div className="completeCard">
@@ -23,7 +23,7 @@ function CompleteCard() {
           <h1 className="superHeroRace">{oneSuperHero.race}</h1>
         </div>
       </div>
-      <div className="containerInfos">
+      <div className="containerIdentity">
         <ul>
           <h2>Profile</h2>
           <li>Gender: {oneSuperHero.gender}</li>
@@ -34,6 +34,8 @@ function CompleteCard() {
           <li>First Appearance: {oneSuperHero.first_appearance}</li>
           <li>Work: {oneSuperHero.work}</li>
         </ul>
+      </div>
+      <div className="containerStats">
         <ul>
           <h2>Stats</h2>
           <div className="icons">
@@ -80,4 +82,4 @@ function CompleteCard() {
   );
 }
 
-export default CompleteCard;
+export default CompleteCardDesktop;
