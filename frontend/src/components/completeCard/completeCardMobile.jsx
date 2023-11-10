@@ -57,12 +57,11 @@ function CompleteCardMobile() {
             {oneSuperHero.durability}
           </li>
           <li>
-            <img src={power} alt="power icon" className="powerIcon" />{" "}
+            <img src={power} alt="power icon" className="powerIcon" />
             {oneSuperHero.power}
           </li>
           <li>
-            {" "}
-            <img src={combat} alt="combat icon" className="combatIcon" />{" "}
+            <img src={combat} alt="combat icon" className="combatIcon" />
             {oneSuperHero.combat}
           </li>
         </ul>
