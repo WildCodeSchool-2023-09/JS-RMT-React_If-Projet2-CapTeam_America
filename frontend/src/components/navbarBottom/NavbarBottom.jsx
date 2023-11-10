@@ -1,20 +1,20 @@
 import "./NavbarBottom.css";
-import { Link } from "react-router-dom";
-import versus from "../../assets/versus.png";
-import contact from "../../assets/contact.png";
 import home from "../../assets/home.png";
-import notFavorite from "../../assets/not-favorite.png";
+import ButtonNav from "./ButtonNav";
 
 function NavbarBottom() {
   return (
     <div className="bottomNav">
-      <button type="button" className="home">
-        <Link to="/">
-          <img src={home} alt="home" width={30} height={30} />
-        </Link>
-      </button>
+      <ButtonNav
+        className="home"
+        LinkTo="/"
+        src={home}
+        alt="home"
+        width={30}
+        height={30}
+      />
 
-      <button type="button" className="favorite">
+      {/* <button type="button" className="favorite">
         <Link to="/Favoris">
           <img src={notFavorite} alt="favorite" height={27} width={27} />
         </Link>
@@ -30,7 +30,7 @@ function NavbarBottom() {
         <Link to="/Versus">
           <img src={versus} alt="versus" width={45} height={45} />
         </Link>
-      </button>
+      </button> */}
     </div>
   );
 }
