@@ -1,13 +1,16 @@
 import "./App.css";
-import { useLoaderData } from "react-router-dom";
-import Cardheros from "./components/cardheros/Cardheros";
+import { React, useState } from "react";
+import { Outlet } from "react-router-dom";
+import SuperheroContext from "./contexts/SuperheroContext";
 
 function App() {
-  const superheros = useLoaderData();
+  const [goFavorite, setGoFavorite] = useState([]);
 
   return (
     <div className="App">
-      <Cardheros superheros={superheros} />
+      <SuperheroContext.Provider value={{ goFavorite, setGoFavorite }}>
+        <Outlet />
+      </SuperheroContext.Provider>
     </div>
   );
 }

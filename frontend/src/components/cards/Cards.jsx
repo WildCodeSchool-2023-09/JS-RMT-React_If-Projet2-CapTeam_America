@@ -1,5 +1,6 @@
 import "./Cards.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import SuperheroContext from "../../contexts/SuperheroContext";
 import elipseFist from "../../assets/ellipse-fist.png";
 import elipseFavoris from "../../assets/ellipse-favoris.png";
 import elipseFavorisOk from "../../assets/ellipse-favoris-ok.png";
@@ -7,10 +8,12 @@ import elipsePoints from "../../assets/ellipse-points.png";
 
 function Cards({ hero }) {
   const [isFavorite, setIsFavorite] = useState(`${elipseFavoris}`);
+  const { goFavorite, setGoFavorite } = useContext(SuperheroContext);
 
   function goToFavorite() {
     if (isFavorite === `${elipseFavoris}`) {
       setIsFavorite(`${elipseFavorisOk}`);
+      setGoFavorite([...goFavorite, hero]);
     } else {
       setIsFavorite(`${elipseFavoris}`);
     }
