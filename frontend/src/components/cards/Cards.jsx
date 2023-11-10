@@ -2,7 +2,7 @@ import "./Cards.css";
 import elipseFist from "../../assets/ellipse-fist.png";
 import elipseFavoris from "../../assets/ellipse-favoris.png";
 import elipsePoints from "../../assets/ellipse-points.png";
-import CompleteCard from "../completeCard/completeCardMobile";
+import CompleteCard from "../completeCard/CompleteCardMobile";
 
 function Cards({ hero }) {
   return (
