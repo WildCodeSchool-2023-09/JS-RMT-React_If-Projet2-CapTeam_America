@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
-import CompleteCard from "./components/completeCard/completeCardMobile";
+import CompleteCard from "./pages/CompleteCard";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     },
   },
   {
-    path: "/:id",
+    path: "/superheros/:id",
     element: <CompleteCard />,
     loader: ({ params }) => {
       return axios
