@@ -1,12 +1,10 @@
 import React from "react";
-import CompleteCardMobile from "../components/completeCard/CompleteCardMobile";
-import CompleteCardDesktop from "../components/completeCard/CompleteCardDesktop";
+import CardMobile from "../components/completeCard/CardMobile";
+import CardDesktop from "../components/completeCard/CardDesktop";
 
 function CompleteCard() {
   const display = window.innerWidth > 765;
-  return (
-    <div>{display ? <CompleteCardDesktop /> : <CompleteCardMobile />}</div>
-  );
+  return <div>{display ? <CardDesktop /> : <CardMobile />}</div>;
 }
 
 export default CompleteCard;
