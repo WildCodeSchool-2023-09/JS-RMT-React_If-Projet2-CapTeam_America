@@ -28,9 +28,19 @@ img {
   width: 100%;
   height: 72px;
   position: relative;
-  top: -90px;
+  top: -75px;
   text-align: left;
   font-family: Jockey One;
+}
+
+.containerInfos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  top: -70px;
+  margin-left: 40px;
+  justify-items: center;
+  align-items: start;
 }
 
 .superHeroName {
@@ -52,16 +62,10 @@ li {
   list-style-type: none;
   color: white;
   text-align: left;
+  margin-top: 0.7rem;
   margin-bottom: 8px;
   font-size: 12px;
   font-weight: bold;
-}
-
-.containerInfos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  top: -120px;
 }
 
 h2 {

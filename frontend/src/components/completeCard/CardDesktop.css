@@ -1,4 +1,4 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 765px) {
   .completeCard {
     background: #ab3d3d;
     border-radius: 15px;
@@ -36,7 +36,7 @@
     width: 80%;
     height: 72px;
     position: relative;
-    top: -90px;
+    top: -75px;
     text-align: left;
   }
 
@@ -89,5 +89,6 @@
 
   li {
     font-size: 1rem;
+    margin-top: 1rem;
   }
 }
