@@ -1,6 +1,5 @@
 import React from "react";
-import "./completeCardMobile.css";
-import "./completeCardDesktop.css";
+import "./CompleteCardMobile.css";
 import { useLoaderData } from "react-router-dom";
 import intelligence from "../../assets/intelligence.png";
 import strength from "../../assets/strength.png";
@@ -9,7 +8,7 @@ import durability from "../../assets/durability.png";
 import power from "../../assets/power.png";
 import combat from "../../assets/combat.png";
 
-function CompleteCard() {
+function CompleteCardMobile() {
   const oneSuperHero = useLoaderData();
   return (
     <div className="completeCard">
@@ -72,4 +71,4 @@ function CompleteCard() {
   );
 }
 
-export default CompleteCard;
+export default CompleteCardMobile;
