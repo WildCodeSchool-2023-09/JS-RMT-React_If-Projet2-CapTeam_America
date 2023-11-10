@@ -5,9 +5,6 @@ import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Cardheros from "./components/cardheros/Cardheros";
-// import Favoris from "./components/Favoris";
-// import Contact from "./components/Contact";
-// import Versus from "./components/Versus";
 
 const router = createBrowserRouter([
   {
@@ -37,18 +34,6 @@ const router = createBrowserRouter([
             .catch((err) => console.error(err));
         },
       },
-      // {
-      //   path: "/Favoris",
-      //   element: <Favoris />,
-      // },
-      // {
-      //   path: "/Contact",
-      //   element: <Contact />,
-      // },
-      // {
-      //   path: "/Versus",
-      //   element: <Versus />,
-      // },
     ],
   },
 ]);
