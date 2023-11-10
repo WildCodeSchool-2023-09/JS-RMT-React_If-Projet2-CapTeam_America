@@ -1,13 +1,12 @@
 import "./App.css";
-import { useLoaderData } from "react-router-dom";
-import Cardheros from "./components/cardheros/Cardheros";
+import { Outlet } from "react-router-dom";
+import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 
 function App() {
-  const superheros = useLoaderData();
-
   return (
     <div className="App">
-      <Cardheros superheros={superheros} />
+      <Outlet />
+      <NavbarBottom />
     </div>
   );
 }
