@@ -1,4 +1,5 @@
 import "./Cards.css";
+import { Link } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import SuperheroContext from "../../contexts/SuperheroContext";
 import elipseFist from "../../assets/ellipse-fist.png";
@@ -56,9 +57,9 @@ function Cards({ hero }) {
         <button type="button" className="buttonFist">
           <img src={elipseFist} alt="Ellipse Fist" className="fist" />
         </button>
-        <button type="button">
+        <Link to={`/superheros/${hero.id}`}>
           <img src={elipsePoints} alt="Ellipse Points" />
-        </button>
+        </Link>
       </div>
     </div>
   );

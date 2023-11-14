@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import CompleteCard from "./pages/CompleteCard";
 import Cardheros from "./components/cardheros/Cardheros";
 import Favoris from "./components/favoris/Favoris";
 
@@ -30,6 +31,16 @@ const router = createBrowserRouter([
         element: <Favoris />,
       },
     ],
+  },
+  {
+    path: "/superheros/:id",
+    element: <CompleteCard />,
+    loader: ({ params }) => {
+      return axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros/${params.id}`)
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
   },
 ]);
 
