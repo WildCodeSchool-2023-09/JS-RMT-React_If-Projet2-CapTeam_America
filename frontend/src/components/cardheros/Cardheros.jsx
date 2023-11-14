@@ -5,7 +5,6 @@ import elipseFavorisOk from "../../assets/ellipse-favoris-ok.png";
 
 function Cardheros() {
   const superheros = useLoaderData();
-
   return (
     <>
       <div className="containerCards">
