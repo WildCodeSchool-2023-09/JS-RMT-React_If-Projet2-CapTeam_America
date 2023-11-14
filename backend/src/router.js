@@ -12,7 +12,10 @@ const client = require("../database/client");
 router.get("/superheros", (req, res) => {
   let url = "SELECT * FROM superhero";
   const values = [];
-
+  if (req.query.race) {
+    url += " WHERE race = ?";
+    values.push(req.query.race);
+  }
   if (req.query.limit) {
     url += " LIMIT ?";
     values.push(+req.query.limit);
@@ -20,6 +23,17 @@ router.get("/superheros", (req, res) => {
 
   client
     .query(url, values)
+    .then((result) => res.status(200).json(result[0]))
+    .catch((error) => {
+      console.error(error);
+      res.sendStatus(500);
+    });
+});
+
+router.get("/races", (req, res) => {
+  const query = "SELECT DISTINCT(race) FROM superhero";
+  client
+    .query(query)
     .then((result) => res.status(200).json(result[0]))
     .catch((error) => {
       console.error(error);
