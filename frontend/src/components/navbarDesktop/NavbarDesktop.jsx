@@ -11,7 +11,7 @@ function NavbarDesktop() {
         alt="ceci est le logo de la page"
         width={180}
       />
-      <Link to="/" className="homeNav">
+      <Link to="/" className="desktopNav">
         Home
       </Link>
     </div>
