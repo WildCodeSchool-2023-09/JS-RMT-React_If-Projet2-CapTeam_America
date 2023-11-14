@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import CompleteCard from "./pages/CompleteCard";
 import Cardheros from "./components/cardheros/Cardheros";
+import Favoris from "./components/favoris/Favoris";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             .then((response) => response.data)
             .catch((err) => console.error(err));
         },
+      },
+      {
+        path: "/favoris",
+        element: <Favoris />,
       },
     ],
   },
