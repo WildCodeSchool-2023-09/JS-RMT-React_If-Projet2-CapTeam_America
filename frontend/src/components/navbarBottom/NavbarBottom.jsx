@@ -16,7 +16,7 @@ function NavbarBottom() {
       />
       <ButtonNav
         className="favorite"
-        linkTo="/favoris"
+        linkTo="/favourites"
         src={favoris}
         alt="favorite"
         width={27}
