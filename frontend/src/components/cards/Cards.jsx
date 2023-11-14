@@ -1,5 +1,5 @@
 import "./Cards.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import SuperheroContext from "../../contexts/SuperheroContext";
 import elipseFist from "../../assets/ellipse-fist.png";
 import elipseFavoris from "../../assets/ellipse-favoris.png";
@@ -10,12 +10,35 @@ function Cards({ hero }) {
   const [isFavorite, setIsFavorite] = useState(`${elipseFavoris}`);
   const { goFavorite, setGoFavorite } = useContext(SuperheroContext);
 
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem("favoris"));
+
+    if (
+      storedFavorites &&
+      storedFavorites.filter((favoriteHero) => favoriteHero.id === hero.id)
+        .length
+    ) {
+      setGoFavorite(storedFavorites);
+      setIsFavorite(`${elipseFavorisOk}`);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favoris", JSON.stringify(goFavorite));
+  }, [goFavorite]);
+
   function goToFavorite() {
-    if (isFavorite === `${elipseFavoris}`) {
+    const isHeroFavorite = goFavorite.some(
+      (favoriteHero) => favoriteHero.id === hero.id
+    );
+    if (isHeroFavorite) {
+      setIsFavorite(`${elipseFavoris}`);
+      setGoFavorite(
+        goFavorite.filter((heroToDelete) => heroToDelete.id !== hero.id)
+      );
+    } else {
       setIsFavorite(`${elipseFavorisOk}`);
       setGoFavorite([...goFavorite, hero]);
-    } else {
-      setIsFavorite(`${elipseFavoris}`);
     }
   }
 
