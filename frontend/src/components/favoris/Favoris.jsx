@@ -9,7 +9,7 @@ function Favoris() {
 
   return (
     <div>
-      <h1>Favoris</h1>
+      <h1 className="titleFavoris">My superhero favourites</h1>
       <div className="containerCards">
         {goFavorite.map((herofav) => (
           <div key={herofav.id} className="cardHero">
