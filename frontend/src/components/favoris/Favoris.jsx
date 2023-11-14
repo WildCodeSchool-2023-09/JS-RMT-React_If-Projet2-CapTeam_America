@@ -1,6 +1,5 @@
 import "./Favoris.css";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import SuperheroContext from "../../contexts/SuperheroContext";
 import elipseFavorisOk from "../../assets/ellipse-favoris-ok.png";
 import elipsePoints from "../../assets/ellipse-points.png";
@@ -33,9 +32,6 @@ function Favoris() {
             </div>
           </div>
         ))}
-      </div>
-      <div>
-        <Link to="/">Accueil</Link>
       </div>
     </div>
   );
