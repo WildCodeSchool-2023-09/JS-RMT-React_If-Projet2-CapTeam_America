@@ -5,7 +5,6 @@ import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 import NavbarDesktop from "./components/navbarDesktop/NavbarDesktop";
 import SuperheroContext from "./contexts/SuperheroContext";
 
-
 function App() {
   const [goFavorite, setGoFavorite] = useState([]);
   return (
