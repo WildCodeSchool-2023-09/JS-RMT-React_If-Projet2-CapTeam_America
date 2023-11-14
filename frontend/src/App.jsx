@@ -1,11 +1,13 @@
+import { Outlet } from "react-router-dom";
+import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
-import Cardheros from "./components/cardheros/Cardheros";
 
 function App() {
-  const superheros = useLoaderData();
+  return (
+    <div className="App">
+     const superheros = useLoaderData();
   const [filteredHeros, setFilteredHeros] = useState(superheros);
   const [race, setRace] = useState(0);
   const [racePicker, setRacePicker] = useState(false);
@@ -83,8 +85,9 @@ function App() {
           </button>
         </div>
       </div>
+      <Outlet />
+      <NavbarBottom />
 
-      <Cardheros superheros={filteredHeros} />
     </div>
   );
 }
