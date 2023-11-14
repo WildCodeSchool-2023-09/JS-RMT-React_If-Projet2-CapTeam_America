@@ -35,7 +35,7 @@ router.get("/superheros/:id", (req, res) => {
     .query("select * from superhero where id = ?", [id])
     .then(([superhero]) => {
       if (superhero[0] != null) {
-        res.json(superhero[0]);
+        res.status(200).json(superhero[0]);
       } else {
         res.sendStatus(404);
       }
