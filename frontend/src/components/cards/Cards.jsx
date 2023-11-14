@@ -1,8 +1,8 @@
 import "./Cards.css";
+import { Link } from "react-router-dom";
 import elipseFist from "../../assets/ellipse-fist.png";
 import elipseFavoris from "../../assets/ellipse-favoris.png";
 import elipsePoints from "../../assets/ellipse-points.png";
-import CompleteCard from "../completeCard/CardMobile";
 
 function Cards({ hero }) {
   return (
@@ -19,9 +19,9 @@ function Cards({ hero }) {
         <button type="button" className="buttonFist">
           <img src={elipseFist} alt="Ellipse Fist" className="fist" />
         </button>
-        <button type="button" onClick={<CompleteCard heroId={hero.id} />}>
+        <Link to={`/superheros/${hero.id}`}>
           <img src={elipsePoints} alt="Ellipse Points" />
-        </button>
+        </Link>
       </div>
     </div>
   );
