@@ -14,8 +14,8 @@ function NavbarDesktop() {
       <Link to="/" className="desktopNav">
         Home
       </Link>
-      <Link to="/favoris" className="desktopNav">
-        Favoris
+      <Link to="/favourites" className="desktopNav">
+        Favourites
       </Link>
     </div>
   );
