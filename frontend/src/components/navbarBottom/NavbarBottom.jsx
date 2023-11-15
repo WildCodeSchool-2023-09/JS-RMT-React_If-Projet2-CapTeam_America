@@ -1,6 +1,7 @@
 import "./NavbarBottom.css";
 import home from "../../assets/home.png";
 import favoris from "../../assets/not-favorite.png";
+import versus from "../../assets/versus.png";
 import ButtonNav from "./ButtonNav";
 
 function NavbarBottom() {
@@ -21,6 +22,14 @@ function NavbarBottom() {
         alt="favorite"
         width={27}
         height={27}
+      />
+      <ButtonNav
+        className="versus"
+        linkTo="/versus"
+        src={versus}
+        alt="versus"
+        width={45}
+        height={45}
       />
     </div>
   );

@@ -6,10 +6,17 @@ import App from "./App";
 import CompleteCard from "./pages/CompleteCard";
 import Cardheros from "./components/cardheros/Cardheros";
 import Favoris from "./components/favoris/Favoris";
+import Versus from "./components/versus/Versus";
 
 const router = createBrowserRouter([
   {
     element: <App />,
+    loader: () => {
+      return axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
+        .then((response) => response.data)
+        .catch((err) => console.error(err));
+    },
     children: [
       {
         path: "/",
@@ -29,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/favourites",
         element: <Favoris />,
+      },
+      {
+        path: "/versus",
+        element: <Versus />,
       },
     ],
   },
