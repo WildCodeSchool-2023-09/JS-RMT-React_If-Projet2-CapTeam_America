@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Outlet, useLoaderData } from "react-router-dom";
 import Cardheros from "./components/cardheros/Cardheros";
@@ -26,12 +26,11 @@ function App() {
       })
       .catch((err) => console.error(err));
   }, []);
-
-  const toggleRacePicker = useCallback(() => {
+  const toggleRacePicker = () => {
     setRacePicker(!racePicker);
-  });
+  };
 
-  const filter = useCallback((selectedRace) => {
+  const filter = (selectedRace) => {
     setRacePicker(false);
     setRace(selectedRace);
 
@@ -55,7 +54,7 @@ function App() {
         })
         .catch((err) => console.error(err));
     }
-  });
+  };
 
   return (
     <div className="App">

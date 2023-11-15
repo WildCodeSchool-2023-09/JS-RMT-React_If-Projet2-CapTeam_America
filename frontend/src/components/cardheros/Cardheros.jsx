@@ -1,9 +1,11 @@
 import "./Cardheros.css";
-import { useLoaderData } from "react-router-dom";
 import Cards from "../cards/Cards";
 
-function Cardheros() {
-  const superheros = useLoaderData();
+function Cardheros({ superheros }) {
+  if (!superheros) {
+    return null;
+  }
+
   return (
     <div className="containerCards">
       {superheros.map((hero) => (
