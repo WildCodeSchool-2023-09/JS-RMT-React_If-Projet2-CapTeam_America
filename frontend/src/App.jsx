@@ -1,10 +1,9 @@
-// App.jsx
-
 import "./App.css";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { Outlet, useLoaderData } from "react-router-dom";
 import Cardheros from "./components/cardheros/Cardheros";
+import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 import ToggleRacePicker from "./components/ToggleRacePicker";
 
 function App() {
@@ -80,7 +79,8 @@ function App() {
           </button>
         </div>
       </div>
-
+      <Outlet />
+      <NavbarBottom />
       <Cardheros superheros={filteredHeros} />
     </div>
   );
