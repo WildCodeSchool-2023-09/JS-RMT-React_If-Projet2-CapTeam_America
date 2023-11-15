@@ -1,18 +1,21 @@
+// App.jsx
+
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 import Cardheros from "./components/cardheros/Cardheros";
+import ToggleRacePicker from "./components/ToggleRacePicker";
 
 function App() {
   const superheros = useLoaderData();
   const [filteredHeros, setFilteredHeros] = useState(superheros);
-  const [race, setRace] = useState(0);
+  const [race, setRace] = useState("");
   const [racePicker, setRacePicker] = useState(false);
   const [races, setRaces] = useState([]);
 
   useEffect(() => {
-    // -- On récupere les races existantes
+    // -- On récupère les races existantes
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/races`)
       .then((response) => {
@@ -25,56 +28,50 @@ function App() {
       .catch((err) => console.error(err));
   }, []);
 
-  function toggleRacePicker(e) {
-    e.preventDefault();
+  const toggleRacePicker = useCallback(() => {
     setRacePicker(!racePicker);
-  }
+  });
 
-  function filter(e) {
-    e.preventDefault();
+  const filter = useCallback((selectedRace) => {
     setRacePicker(false);
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros?race=${race}`)
-      .then((response) => {
-        setFilteredHeros(response.data);
-      })
-      .catch((err) => console.error(err));
-  }
+    setRace(selectedRace);
+
+    // Si "Toutes les races" sont sélectionnées, afficher tous les éléments
+    if (selectedRace === "_all_") {
+      axios
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
+        .then((response) => {
+          setFilteredHeros(response.data);
+        })
+        .catch((err) => console.error(err));
+    } else {
+      axios
+        .get(
+          `${
+            import.meta.env.VITE_BACKEND_URL
+          }/api/superheros?race=${selectedRace}`
+        )
+        .then((response) => {
+          setFilteredHeros(response.data);
+        })
+        .catch((err) => console.error(err));
+    }
+  });
 
   return (
     <div className="App">
-      {racePicker === true && (
-        <div className="race-picker">
-          <label htmlFor="race">Sélectionner la race</label>
-          <select
-            name="race"
-            defaultValue={race}
-            onChange={(e) => setRace(e.target.value)}
-          >
-            {races.map((breed) => {
-              if (breed.race === "") {
-                return (
-                  <option key="all" value="">
-                    Toutes les races
-                  </option>
-                );
-              }
-              return (
-                <option key={breed.race} value={breed.race}>
-                  {breed.race}
-                </option>
-              );
-            })}
-          </select>
-          <button type="button" onClick={filter}>
-            Filtrer
-          </button>
-        </div>
+      {racePicker && (
+        <ToggleRacePicker
+          races={races}
+          selectedRace={race}
+          onToggle={toggleRacePicker}
+          onFilter={filter}
+        />
       )}
 
       <div className="header">
         <div className="logo">
-          <img src="image.png" alt="Logo" />
+          <img src="image.png" alt="Logo" className="logo" />
         </div>
 
         <div className="filter">
