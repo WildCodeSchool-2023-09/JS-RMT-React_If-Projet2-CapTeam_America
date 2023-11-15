@@ -1,6 +1,7 @@
 import "./NavbarBottom.css";
 import home from "../../assets/home.png";
 import favoris from "../../assets/not-favorite.png";
+import contact from "../../assets/contact.png";
 import ButtonNav from "./ButtonNav";
 
 function NavbarBottom() {
@@ -21,6 +22,14 @@ function NavbarBottom() {
         alt="favorite"
         width={27}
         height={27}
+      />
+      <ButtonNav
+        className="contact"
+        linkTo="/contact"
+        src={contact}
+        alt="contact"
+        width={40}
+        height={40}
       />
     </div>
   );
