@@ -11,12 +11,6 @@ import Versus from "./components/versus/Versus";
 const router = createBrowserRouter([
   {
     element: <App />,
-    loader: () => {
-      return axios
-        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
-        .then((response) => response.data)
-        .catch((err) => console.error(err));
-    },
     children: [
       {
         path: "/",
@@ -40,6 +34,12 @@ const router = createBrowserRouter([
       {
         path: "/versus",
         element: <Versus />,
+        loader: () => {
+          return axios
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
+            .then((response) => response.data)
+            .catch((err) => console.error(err));
+        },
       },
     ],
   },
