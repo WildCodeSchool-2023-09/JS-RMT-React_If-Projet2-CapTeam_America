@@ -35,8 +35,8 @@ const router = createBrowserRouter([
       {
         path: "/versus",
         element: <Versus />,
-       },
-       {
+      },
+      {
         path: "/contact",
         element: <ContactForm />,
       },
