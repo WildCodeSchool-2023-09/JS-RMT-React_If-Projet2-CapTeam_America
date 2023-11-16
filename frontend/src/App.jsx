@@ -1,10 +1,13 @@
-import "./App.css";
-import { useState, useEffect } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { Outlet, useLoaderData } from "react-router-dom";
 import Cardheros from "./components/cardheros/Cardheros";
 import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 import ToggleRacePicker from "./components/ToggleRacePicker";
+import NavbarDesktop from "./components/navbarDesktop/NavbarDesktop";
+import FooterDesktop from "./components/footerDesktop/FooterDesktop";
+import SuperheroContext from "./contexts/SuperheroContext";
+import "./App.css";
 
 function App() {
   const superheros = useLoaderData();
@@ -12,9 +15,9 @@ function App() {
   const [race, setRace] = useState("");
   const [racePicker, setRacePicker] = useState(false);
   const [races, setRaces] = useState([]);
+  const [goFavorite, setGoFavorite] = useState([]);
 
   useEffect(() => {
-    // -- On récupère les races existantes
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/races`)
       .then((response) => {
@@ -34,7 +37,6 @@ function App() {
     setRacePicker(false);
     setRace(selectedRace);
 
-    // Si "Toutes les races" sont sélectionnées, afficher tous les éléments
     if (selectedRace === "_all_") {
       axios
         .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
@@ -78,11 +80,14 @@ function App() {
           </button>
         </div>
       </div>
-      <Outlet />
+         <NavbarDesktop />
+    <SuperheroContext.Provider value={{ goFavorite, setGoFavorite }}>
+        <Outlet />
+      </SuperheroContext.Provider>
       <NavbarBottom />
       <Cardheros superheros={filteredHeros} />
-    </div>
-  );
+            <FooterDesktop />
+            </div>
 }
 
 export default App;
