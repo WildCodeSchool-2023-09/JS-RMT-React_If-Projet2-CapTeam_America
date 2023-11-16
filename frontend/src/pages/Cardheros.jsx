@@ -1,6 +1,5 @@
 import { useLoaderData } from "react-router-dom";
 import Cards from "../components/cards/Cards";
-import "./Cardheros.css";
 
 function Cardheros() {
   const superheros = useLoaderData();
