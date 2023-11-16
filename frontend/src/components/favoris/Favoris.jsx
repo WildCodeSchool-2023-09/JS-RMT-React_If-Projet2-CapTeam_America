@@ -9,8 +9,8 @@ function Favoris() {
 
   return (
     <div>
-      <h1 className="titleFavoris">My superhero favourites</h1>
-      <div className="containerCards">
+      <h1 className="titleFavoris">My favorites superhero</h1>
+      <div className="containerCardsFavoris">
         {goFavorite.map((herofav) => (
           <div key={herofav.id} className="cardHero">
             <img
