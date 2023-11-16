@@ -6,6 +6,7 @@ import App from "./App";
 import CompleteCard from "./pages/CompleteCard";
 import Cardheros from "./components/cardheros/Cardheros";
 import Favoris from "./components/favoris/Favoris";
+import ContactForm from "./components/contactForm/ContactForm";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/favourites",
         element: <Favoris />,
+      },
+      {
+        path: "/contact",
+        element: <ContactForm />,
       },
     ],
   },
