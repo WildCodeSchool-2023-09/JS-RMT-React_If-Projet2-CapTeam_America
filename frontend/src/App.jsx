@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 import NavbarDesktop from "./components/navbarDesktop/NavbarDesktop";
+import FooterDesktop from "./components/footerDesktop/FooterDesktop";
 import SuperheroContext from "./contexts/SuperheroContext";
 import "./App.css";
 
@@ -55,6 +56,7 @@ function App() {
         <Outlet />
       </SuperheroContext.Provider>
       <NavbarBottom />
+      <FooterDesktop />
     </div>
   );
 }

@@ -7,6 +7,7 @@ import CompleteCard from "./pages/CompleteCard";
 import Cardheros from "./pages/Cardheros";
 import Favoris from "./components/favoris/Favoris";
 import Versus from "./components/versus/Versus";
+import ContactForm from "./components/contactForm/ContactForm";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/versus",
         element: <Versus />,
+       },
+       {
+        path: "/contact",
+        element: <ContactForm />,
       },
     ],
   },

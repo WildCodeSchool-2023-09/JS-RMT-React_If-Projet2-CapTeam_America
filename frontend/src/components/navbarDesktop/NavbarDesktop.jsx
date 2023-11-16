@@ -14,11 +14,14 @@ function NavbarDesktop() {
       <Link to="/" className="desktopNav">
         Home
       </Link>
-      <Link to="/favourites" className="desktopNav">
+      <Link to="/favorites" className="desktopNav">
         Favourites
       </Link>
       <Link to="/versus" className="desktopNav">
         Versus
+      </Link>
+      <Link to="/contact" className="desktopNav">
+        Contact
       </Link>
     </div>
   );
