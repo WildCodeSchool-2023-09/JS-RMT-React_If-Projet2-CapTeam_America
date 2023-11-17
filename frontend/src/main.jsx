@@ -4,8 +4,9 @@ import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import CompleteCard from "./pages/CompleteCard";
-import Cardheros from "./components/cardheros/Cardheros";
+import Cardheros from "./pages/Cardheros";
 import Favoris from "./components/favoris/Favoris";
+import Versus from "./components/versus/Versus";
 import ContactForm from "./components/contactForm/ContactForm";
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/favorites",
         element: <Favoris />,
+      },
+      {
+        path: "/versus",
+        element: <Versus />,
       },
       {
         path: "/contact",
