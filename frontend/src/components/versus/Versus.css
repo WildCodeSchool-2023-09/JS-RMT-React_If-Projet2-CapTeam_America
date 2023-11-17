@@ -38,12 +38,12 @@
   }
 }
 
-.combattants {
+.fighter {
   margin-bottom: 30px;
   margin-top: 30px;
 }
 
-.combattants h2 {
+.fighter h2 {
   margin-bottom: 10px;
 }
 
@@ -126,20 +126,20 @@
   border-radius: 10px;
 }
 
-.combattant1Img,
-.combattant2Img,
+.fighter1Img,
+.fighter2Img,
 .imgWinner {
   border-radius: 10px;
   filter: drop-shadow(15px 15px 10px #000000);
 }
 
-.combattant1Img {
+.fighter1Img {
   margin-left: 10px;
   margin-top: 200px;
   margin-bottom: 40px;
 }
 
-.combattant2Img {
+.fighter2Img {
   margin-right: 10px;
   margin-top: 200px;
   margin-bottom: 40px;
@@ -169,11 +169,11 @@
 }
 
 @media screen and (min-width: 900px) {
-  .combattant1Img {
+  .fighter1Img {
     margin-bottom: 100px;
   }
 
-  .combattant2Img {
+  .fighter2Img {
     margin-bottom: 100px;
   }
 }

@@ -58,7 +58,7 @@ function Versus() {
       <h1 className="titleVersus">Versus</h1>
       {fighters.length === 2 ? (
         <>
-          <div className="combattants">
+          <div className="fighter">
             <h2>Fighter 1 : {fighters[0].name}</h2>
             <h2>Fighter 2 : {fighters[1].name}</h2>
             <button
@@ -75,12 +75,12 @@ function Versus() {
                 <img
                   src={fighters[0].image_sm}
                   alt="Hero one"
-                  className="combattant1Img animeFighter1"
+                  className="fighter1Img animeFighter1"
                 />
                 <img
                   src={fighters[1].image_sm}
                   alt="Hero two"
-                  className="combattant2Img animeFighter2"
+                  className="fighter2Img animeFighter2"
                 />
               </div>
               <div className="skills">
