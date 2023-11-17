@@ -35,17 +35,19 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactForm />,
       },
+      {
+        path: "/superheros/:id",
+        element: <CompleteCard />,
+        loader: ({ params }) => {
+          return axios
+            .get(
+              `${import.meta.env.VITE_BACKEND_URL}/api/superheros/${params.id}`
+            )
+            .then((response) => response.data)
+            .catch((err) => console.error(err));
+        },
+      },
     ],
-  },
-  {
-    path: "/superheros/:id",
-    element: <CompleteCard />,
-    loader: ({ params }) => {
-      return axios
-        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros/${params.id}`)
-        .then((response) => response.data)
-        .catch((err) => console.error(err));
-    },
   },
 ]);
 
