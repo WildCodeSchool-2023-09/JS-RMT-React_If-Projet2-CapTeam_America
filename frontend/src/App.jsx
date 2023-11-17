@@ -33,8 +33,10 @@ function App() {
 
   useEffect(() => {
     if (start) {
-      setFighters(JSON.parse(localStorage.getItem("fighters")) || []);
-      setFavories(JSON.parse(localStorage.getItem("favoris")) || []);
+      if (localStorage.getItem("fighters") !== "undefined")
+        setFighters(JSON.parse(localStorage.getItem("fighters")) || []);
+      if (localStorage.getItem("favoris") !== "undefined")
+        setFavories(JSON.parse(localStorage.getItem("favoris")) || []);
       start = false;
     } else {
       localStorage.setItem("favoris", JSON.stringify(favories));
