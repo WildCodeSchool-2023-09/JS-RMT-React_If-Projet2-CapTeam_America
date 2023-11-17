@@ -1,4 +1,5 @@
 import "./Favoris.css";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import SuperheroContext from "../../contexts/SuperheroContext";
 import elipseFavorisOk from "../../assets/ellipse-favoris-ok.png";
@@ -26,9 +27,9 @@ function Favoris() {
               <button type="button">
                 <img src={elipseFavorisOk} alt="Ellipse Favoris" />
               </button>
-              <button type="button">
+              <Link to={`/superheros/${herofav.id}`}>
                 <img src={elipsePoints} alt="Ellipse Points" />
-              </button>
+              </Link>
             </div>
           </div>
         ))}
