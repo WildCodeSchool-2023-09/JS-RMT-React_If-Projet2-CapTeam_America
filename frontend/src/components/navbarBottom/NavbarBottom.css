@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .bottomNav {
+    display: none;
+    visibility: hidden;
+  }
+}
+.bottomNav {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  overflow: visible;
+  min-height: 55px;
+  max-height: 55px;
+  flex-wrap: nowrap;
+  box-shadow: 0px -4px 4px 1px rgba(0, 0, 0, 0.21);
+}
+
+.bottomNav button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-top: -12px;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.71);
+  border: none;
+  background-color: white;
+  padding-top: 5px;
+}
+
+.bottomNav button:hover {
+  background-color: black;
+  animation: rotate-center 0.5s ease-in-out both;
+}
+
+.bottomNav button:hover img {
+  filter: invert(1);
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.versus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7px;
+}
+
+.favorite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}

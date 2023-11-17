@@ -1,21 +1,22 @@
-// App.jsx
-
-import "./App.css";
-import { useState, useEffect, useCallback } from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
-import Cardheros from "./components/cardheros/Cardheros";
+import { Outlet, useLoaderData } from "react-router-dom";
+import NavbarBottom from "./components/navbarBottom/NavbarBottom";
 import ToggleRacePicker from "./components/ToggleRacePicker";
+import NavbarDesktop from "./components/navbarDesktop/NavbarDesktop";
+import FooterDesktop from "./components/footerDesktop/FooterDesktop";
+import SuperheroContext from "./contexts/SuperheroContext";
+import "./App.css";
 
 function App() {
   const superheros = useLoaderData();
-  const [filteredHeros, setFilteredHeros] = useState(superheros);
+  const [setFilteredHeros] = useState(superheros);
   const [race, setRace] = useState("");
   const [racePicker, setRacePicker] = useState(false);
   const [races, setRaces] = useState([]);
+  const [goFavorite, setGoFavorite] = useState([]);
 
   useEffect(() => {
-    // -- On récupère les races existantes
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/races`)
       .then((response) => {
@@ -27,12 +28,11 @@ function App() {
       })
       .catch((err) => console.error(err));
   }, []);
-
-  const toggleRacePicker = useCallback(() => {
+  const toggleRacePicker = () => {
     setRacePicker(!racePicker);
-  });
+  };
 
-  const filter = useCallback((selectedRace) => {
+  const filter = (selectedRace) => {
     setRacePicker(false);
     setRace(selectedRace);
 
@@ -44,7 +44,7 @@ function App() {
         setFilteredHeros(response.data);
       })
       .catch((err) => console.error(err));
-  });
+  };
 
   return (
     <div className="App">
@@ -68,8 +68,12 @@ function App() {
           </button>
         </div>
       </div>
-
-      <Cardheros superheros={filteredHeros} />
+      <NavbarDesktop />
+      <SuperheroContext.Provider value={{ goFavorite, setGoFavorite }}>
+        <Outlet />
+      </SuperheroContext.Provider>
+      <NavbarBottom />
+      <FooterDesktop />
     </div>
   );
 }
