@@ -1,61 +1,49 @@
-import "./Cards.css";
 import { Link } from "react-router-dom";
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import SuperheroContext from "../../contexts/SuperheroContext";
+import "./Cards.css";
 import elipseFist from "../../assets/ellipse-fist.png";
 import elipseFavoris from "../../assets/ellipse-favoris.png";
 import elipseFavorisOk from "../../assets/ellipse-favoris-ok.png";
 import elipsePoints from "../../assets/ellipse-points.png";
+import fightOk from "../../assets/fightOk.png";
 
 function Cards({ hero }) {
-  const [isFavorite, setIsFavorite] = useState(`${elipseFavoris}`);
-  const { goFavorite, setGoFavorite } = useContext(SuperheroContext);
-
-  useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem("favoris"));
-
-    if (
-      storedFavorites &&
-      storedFavorites.filter((favoriteHero) => favoriteHero.id === hero.id)
-        .length
-    ) {
-      setGoFavorite(storedFavorites);
-      setIsFavorite(`${elipseFavorisOk}`);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("favoris", JSON.stringify(goFavorite));
-  }, [goFavorite]);
-
-  function goToFavorite() {
-    const isHeroFavorite = goFavorite.some(
-      (favoriteHero) => favoriteHero.id === hero.id
-    );
-    if (isHeroFavorite) {
-      setIsFavorite(`${elipseFavoris}`);
-      setGoFavorite(
-        goFavorite.filter((heroToDelete) => heroToDelete.id !== hero.id)
-      );
-    } else {
-      setIsFavorite(`${elipseFavorisOk}`);
-      setGoFavorite([...goFavorite, hero]);
-    }
-  }
+  const { favories, handleFavories, fighters, handleFighters } =
+    useContext(SuperheroContext);
 
   return (
-    <div className="cardHero">
+    <div className="cardHero" role="presentation">
       <img src={hero.image_sm} alt={hero.name} className="imgCard" />
       <div className="containerNameRace">
-        <p className="titleName">{hero.name.toUpperCase()}</p>
+        <p className="titleName">{hero.name}</p>
         <p className="titleRace">{hero.race}</p>
       </div>
       <div className="containerButtons">
-        <button type="button" onClick={goToFavorite}>
-          <img src={isFavorite} alt="Ellipse Favoris" />
+        <button type="button" onClick={() => handleFavories(hero)}>
+          <img
+            src={
+              favories.some((fav) => fav.id === hero.id)
+                ? elipseFavorisOk
+                : elipseFavoris
+            }
+            alt="Ellipse Favoris"
+          />
         </button>
-        <button type="button" className="buttonFist">
-          <img src={elipseFist} alt="Ellipse Fist" className="fist" />
+        <button
+          type="button"
+          className="buttonFist"
+          onClick={() => handleFighters(hero)}
+        >
+          <img
+            src={
+              fighters.some((fight) => fight.id === hero.id)
+                ? fightOk
+                : elipseFist
+            }
+            alt="Ellipse Fist"
+            className="fist"
+          />
         </button>
         <Link to={`/superheros/${hero.id}`}>
           <img src={elipsePoints} alt="Ellipse Points" />

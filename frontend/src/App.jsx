@@ -1,75 +1,63 @@
 import { React, useState, useEffect } from "react";
-import axios from "axios";
-import { Outlet, useLoaderData } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import NavbarBottom from "./components/navbarBottom/NavbarBottom";
-import ToggleRacePicker from "./components/ToggleRacePicker";
 import NavbarDesktop from "./components/navbarDesktop/NavbarDesktop";
 import FooterDesktop from "./components/footerDesktop/FooterDesktop";
 import SuperheroContext from "./contexts/SuperheroContext";
 import "./App.css";
 
+let start = true;
+
 function App() {
-  const superheros = useLoaderData();
-  const [setFilteredHeros] = useState(superheros);
-  const [race, setRace] = useState("");
-  const [racePicker, setRacePicker] = useState(false);
-  const [races, setRaces] = useState([]);
-  const [goFavorite, setGoFavorite] = useState([]);
+  const [favories, setFavories] = useState([]);
+  const [fighters, setFighters] = useState([]);
+
+  const handleFavories = (hero) => {
+    if (favories.some((fav) => fav.id === hero.id)) {
+      setFavories(() => favories.filter((fav) => fav.id !== hero.id));
+    } else {
+      setFavories((prev) => [...prev, hero]);
+    }
+  };
+
+  const handleFighters = (hero) => {
+    if (
+      !fighters.some((fight) => fight.id === hero.id) &&
+      fighters.length < 2
+    ) {
+      setFighters((prev) => [...prev, hero]);
+    } else {
+      setFighters(() => fighters.filter((fight) => fight.id !== hero.id));
+    }
+  };
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/races`)
-      .then((response) => {
-        const breeds = response.data.filter(
-          (breed) => !(!breed.race || /^\s*$/.test(breed.id))
-        );
-        breeds.unshift({ race: "" });
-        setRaces(breeds);
-      })
-      .catch((err) => console.error(err));
-  }, []);
-  const toggleRacePicker = () => {
-    setRacePicker(!racePicker);
-  };
-
-  const filter = (selectedRace) => {
-    setRacePicker(false);
-    setRace(selectedRace);
-
-    // Si "Toutes les races" sont sélectionnées, afficher tous les éléments
-    const query = selectedRace === "_all_" ? "" : `?race=${selectedRace}`;
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros${query} `)
-      .then((response) => {
-        setFilteredHeros(response.data);
-      })
-      .catch((err) => console.error(err));
-  };
+    if (start) {
+      setFighters(JSON.parse(localStorage.getItem("fighters")) || []);
+      setFavories(JSON.parse(localStorage.getItem("favoris")) || []);
+      start = false;
+    } else {
+      localStorage.setItem("favoris", JSON.stringify(favories));
+      localStorage.setItem("fighters", JSON.stringify(fighters));
+    }
+  }, [favories, fighters]);
 
   return (
     <div className="App">
-      {racePicker && (
-        <ToggleRacePicker
-          races={races}
-          selectedRace={race}
-          onToggle={toggleRacePicker}
-          onFilter={filter}
-        />
-      )}
-
       <div className="header">
-        <div className="logo">
-          <img src="image.png" alt="Logo" className="logo" />
-        </div>
-
-        <div className="filter">
-          <button type="button" onClick={toggleRacePicker}>
-            <img src="filter.png" alt="Filter" />
-          </button>
+        <div className="logo logotop">
+          <img src="image.png" alt="Logo" className="logotopmobile" />
         </div>
       </div>
       <NavbarDesktop />
-      <SuperheroContext.Provider value={{ goFavorite, setGoFavorite }}>
+      <SuperheroContext.Provider
+        value={{
+          favories,
+          handleFavories,
+          fighters,
+          handleFighters,
+        }}
+      >
         <Outlet />
       </SuperheroContext.Provider>
       <NavbarBottom />

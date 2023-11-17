@@ -4,8 +4,9 @@ import axios from "axios";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import CompleteCard from "./pages/CompleteCard";
-import Cardheros from "./components/cardheros/Cardheros";
+import Cardheros from "./pages/Cardheros";
 import Favoris from "./components/favoris/Favoris";
+import Versus from "./components/versus/Versus";
 import ContactForm from "./components/contactForm/ContactForm";
 
 const router = createBrowserRouter([
@@ -16,20 +17,19 @@ const router = createBrowserRouter([
         path: "/",
         element: <Cardheros />,
         loader: () => {
-          const count = window.innerWidth > 765 ? 8 : 4;
           return axios
-            .get(
-              `${
-                import.meta.env.VITE_BACKEND_URL
-              }/api/superheros?limit=${count}`
-            )
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
             .then((response) => response.data)
             .catch((err) => console.error(err));
         },
       },
       {
-        path: "/favourites",
+        path: "/favorites",
         element: <Favoris />,
+      },
+      {
+        path: "/versus",
+        element: <Versus />,
       },
       {
         path: "/contact",
