@@ -15,7 +15,6 @@ div.completeCard {
 
 div.superHeroIdentity {
   width: 100%;
-  font-family: Jockey One;
 }
 
 .containerInfos {
@@ -26,6 +25,7 @@ div.superHeroIdentity {
   margin-left: 40px;
   justify-items: center;
   align-items: start;
+  font-family: Jockey One;
 }
 
 .superHeroName {

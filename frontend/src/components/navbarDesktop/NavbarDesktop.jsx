@@ -15,7 +15,7 @@ function NavbarDesktop() {
         Home
       </Link>
       <Link to="/favorites" className="desktopNav">
-        Favourites
+        Favorites
       </Link>
       <Link to="/versus" className="desktopNav">
         Versus

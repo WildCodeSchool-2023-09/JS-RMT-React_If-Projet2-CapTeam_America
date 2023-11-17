@@ -16,7 +16,7 @@ function Cards({ hero }) {
     <div className="cardHero" role="presentation">
       <img src={hero.image_sm} alt={hero.name} className="imgCard" />
       <div className="containerNameRace">
-        <p className="titleName">{hero.name.toUpperCase()}</p>
+        <p className="titleName">{hero.name}</p>
         <p className="titleRace">{hero.race}</p>
       </div>
       <div className="containerButtons">
