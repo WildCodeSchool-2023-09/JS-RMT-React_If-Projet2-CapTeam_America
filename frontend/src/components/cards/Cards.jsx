@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useContext from "react";
+import { useContext } from "react";
 import SuperheroContext from "../../contexts/SuperheroContext";
 import "./Cards.css";
 import elipseFist from "../../assets/ellipse-fist.png";

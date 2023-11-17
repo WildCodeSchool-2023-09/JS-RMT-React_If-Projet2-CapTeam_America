@@ -54,7 +54,7 @@ function Versus() {
   };
 
   return (
-    <div>
+    <div className="versusContainer">
       <h1 className="titleVersus">Versus</h1>
       {fighters.length === 2 ? (
         <>
