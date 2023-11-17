@@ -14,21 +14,11 @@ code {
 
 .App {
   text-align: center;
-  background-image: url("../public/background-hero.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-size: 100%;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media screen and (min-width: 765px) {
-  .App {
-    background-image: url("../public/background-desktop.png");
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

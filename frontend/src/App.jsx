@@ -37,25 +37,13 @@ function App() {
     setRace(selectedRace);
 
     // Si "Toutes les races" sont sélectionnées, afficher tous les éléments
-    if (selectedRace === "_all_") {
-      axios
-        .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
-        .then((response) => {
-          setFilteredHeros(response.data);
-        })
-        .catch((err) => console.error(err));
-    } else {
-      axios
-        .get(
-          `${
-            import.meta.env.VITE_BACKEND_URL
-          }/api/superheros?race=${selectedRace}`
-        )
-        .then((response) => {
-          setFilteredHeros(response.data);
-        })
-        .catch((err) => console.error(err));
-    }
+    const query = selectedRace === "_all_" ? "" : `?race=${selectedRace}`;
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros${query} `)
+      .then((response) => {
+        setFilteredHeros(response.data);
+      })
+      .catch((err) => console.error(err));
   });
 
   return (
