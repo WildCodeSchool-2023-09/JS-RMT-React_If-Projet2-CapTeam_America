@@ -17,6 +17,9 @@ function NavbarDesktop() {
       <Link to="/favorites" className="desktopNav">
         Favorites
       </Link>
+      <Link to="/versus" className="desktopNav">
+        Versus
+      </Link>
       <Link to="/contact" className="desktopNav">
         Contact
       </Link>
