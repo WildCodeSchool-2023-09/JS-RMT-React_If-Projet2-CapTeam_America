@@ -16,13 +16,8 @@ const router = createBrowserRouter([
         path: "/",
         element: <Cardheros />,
         loader: () => {
-          const count = window.innerWidth > 765 ? 8 : 4;
           return axios
-            .get(
-              `${
-                import.meta.env.VITE_BACKEND_URL
-              }/api/superheros?limit=${count}`
-            )
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/superheros`)
             .then((response) => response.data)
             .catch((err) => console.error(err));
         },
