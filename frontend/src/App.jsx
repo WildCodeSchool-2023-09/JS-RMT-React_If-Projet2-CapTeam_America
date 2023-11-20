@@ -46,6 +46,11 @@ function App() {
 
   return (
     <div className="App">
+      <div className="header">
+        <div className="logo logotop">
+          <img src="image.png" alt="Logo" className="logotopmobile" />
+        </div>
+      </div>
       <NavbarDesktop />
       <SuperheroContext.Provider
         value={{

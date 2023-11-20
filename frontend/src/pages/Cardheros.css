@@ -6,6 +6,12 @@
   margin-bottom: 150px;
 }
 
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
 @media screen and (min-width: 765px) {
   .containerCards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
