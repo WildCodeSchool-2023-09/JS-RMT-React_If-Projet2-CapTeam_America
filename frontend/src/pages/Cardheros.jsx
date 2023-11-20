@@ -52,7 +52,6 @@ function Cardheros() {
           onFilter={filter}
         />
       )}
-      {/* <h1 className="titleHome">My Superheroes</h1> */}
       <div className="filter">
         <button type="button" onClick={toggleRacePicker}>
           <img src="filter.png" alt="Filter" />
