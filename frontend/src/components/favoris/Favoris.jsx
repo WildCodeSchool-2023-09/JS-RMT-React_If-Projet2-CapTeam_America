@@ -9,7 +9,11 @@ function Favoris() {
   const { favories, handleFavories } = useContext(SuperheroContext);
   return (
     <div>
-      <h1 className="titleFavoris">My superhero favourites</h1>
+      <h1 className="titleFavoris">
+        My favorites
+        <br />
+        superheroes
+      </h1>
       <div className="containerCards">
         {favories.map((hero) => (
           <div key={hero.id} className="cardHero">

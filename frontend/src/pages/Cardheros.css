@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  margin-top: 190px;
+  margin-top: 82px;
   margin-bottom: 150px;
 }
 
@@ -10,10 +10,64 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
+  align-items: center;
+  margin-top: -30px;
+}
+
+.titleHome {
+  visibility: hidden;
+}
+
+.App .race-picker {
+  margin-top: 50px;
+  background: #ab3d3d;
+  /* background: radial-gradient(
+    circle,
+    rgba(171, 61, 61, 0.7287289915966386) 100%,
+    rgba(241, 241, 241, 1) 100%
+  ); */
+  border-radius: 10px;
+  color: white;
+  width: 30%;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.containerPicker {
+  display: flex;
+  justify-content: center;
+}
+
+.App .race-picker label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.App .race-picker button {
+  color: white;
+  border: 1px white solid;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 @media screen and (min-width: 765px) {
   .containerCards {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .filter {
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .titleHome {
+    visibility: visible;
+    font-family: "sigmar one", sans-serif;
+  }
+
+  .App .race-picker {
+    margin-top: 100px;
   }
 }
