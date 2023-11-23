@@ -1,0 +1,184 @@
+.versusContainer {
+  margin-top: 0px;
+  margin-bottom: 250px;
+}
+
+.titleVersus {
+  font-family: "sigmar one", sans-serif;
+}
+
+@keyframes myAnim1 {
+  0% {
+    transform: scale(0);
+    transform-origin: 0% 50%;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: 0% 50%;
+  }
+}
+
+@keyframes myAnim2 {
+  0% {
+    transform: scale(0);
+    transform-origin: 100% 50%;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+}
+
+@keyframes myAnimResult {
+  0% {
+    transform: scale(0);
+    transform-origin: 50% 0%;
+  }
+
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+  }
+}
+
+.fighter {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.fighter h2 {
+  margin-bottom: 10px;
+}
+
+.butFight,
+.butResult {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  padding-top: 6px;
+}
+
+.butn {
+  width: 6.5em;
+  height: 2.3em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #ab3d3d;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.butn:hover {
+  color: black;
+}
+
+.butn:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.butn:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.animeFighter1 {
+  animation: myAnim1 2s ease 0s 1 normal forwards;
+}
+
+.animeFighter2 {
+  animation: myAnim2 2s ease 0s 1 normal forwards;
+}
+
+.animeResult {
+  animation: myAnimResult 1s ease 0s 1 normal forwards;
+}
+
+.ringBack {
+  background-image: url("../../../public/ring.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.fighter1Img,
+.fighter2Img,
+.imgWinner {
+  border-radius: 10px;
+  filter: drop-shadow(15px 15px 10px #000000);
+}
+
+.fighter1Img {
+  margin-left: 10px;
+  margin-top: 200px;
+  margin-bottom: 40px;
+}
+
+.fighter2Img {
+  margin-right: 10px;
+  margin-top: 200px;
+  margin-bottom: 40px;
+}
+
+.skills {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.skills p {
+  line-height: 40px;
+  font-size: 27px;
+}
+
+.scoreAnime h2 {
+  margin-bottom: 20px;
+}
+
+.containImgWinner {
+  margin-bottom: 100px;
+}
+
+.imgWinner {
+  max-width: 200px;
+  max-height: 240px;
+}
+
+@media screen and (min-width: 900px) {
+  .fighter1Img {
+    margin-bottom: 100px;
+  }
+
+  .fighter2Img {
+    margin-bottom: 100px;
+  }
+}

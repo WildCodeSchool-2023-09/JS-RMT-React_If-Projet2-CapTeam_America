@@ -1,0 +1,97 @@
+@media only screen and (min-width: 765px) {
+  div.completeCard {
+    width: 80%;
+    height: 66%;
+    max-width: fit-content;
+    max-height: fit-content;
+    align-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 200px;
+  }
+
+  .superImg {
+    width: 80%;
+    height: 71%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px rgba(0, 0, 0, 0.2) solid;
+  }
+
+  .superHeroImg {
+    margin-left: 15%;
+    margin-top: 20%;
+  }
+
+  div.superHeroIdentity {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  div.superHeroIdentity h2 {
+    text-align: left;
+  }
+
+  .containerIdentity {
+    margin-left: 15%;
+    margin-top: 20%;
+    line-height: 25px;
+    color: white;
+    font-family: Jockey One;
+  }
+
+  .containerIdentity li {
+    font-size: 1rem;
+    margin-top: 1rem;
+    list-style-type: none;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .containerStats {
+    margin-left: 15%;
+    margin-top: 20%;
+    color: white;
+    font-family: Jockey One;
+  }
+
+  .containerStats li {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    list-style-type: none;
+    font-weight: bold;
+  }
+
+  .intelligenceIcon {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+  }
+
+  .strengthIcon {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+  }
+  .speedIcon {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+  }
+  .durabilityIcon {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+  }
+  .powerIcon {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+  }
+  .combatIcon {
+    height: 30px;
+    width: 30px;
+    margin-right: 15px;
+  }
+}

@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(../public/wallPaper.png);
+  background-attachment: fixed;
 }
 
 code {
@@ -16,20 +18,26 @@ code {
   text-align: center;
 }
 
-.App-logo {
+.logotopmobile {
+  margin-left: 20px;
+  margin-top: 20px;
   height: 40vmin;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (min-width: 765px) {
+  .logotop img {
+    visibility: hidden;
   }
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +54,7 @@ code {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -53,4 +62,46 @@ code {
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+.App .header {
+  display: flex;
+}
+
+.App .header .logo {
+  width: 50%;
+  height: 50%;
+  text-align: left;
+}
+
+.App .header .logo img {
+  width: 50%;
+  height: 50%;
+}
+
+.App .header .filter {
+  width: 50%;
+  text-align: right;
+  padding-top: 10px;
+}
+
+.App .header .filter img {
+  width: 60px;
+  height: 40px;
+}
+
+.App .race-picker {
+  background-color: #e3e3e3;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.App .race-picker button {
+  border: 1px solid white;
+  width: 60px;
+  margin: auto;
 }

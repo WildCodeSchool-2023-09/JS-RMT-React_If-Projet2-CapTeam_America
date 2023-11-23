@@ -1,0 +1,19 @@
+.buttonNav {
+  top: -50px;
+}
+
+.titleFavoris {
+  font-family: "sigmar one", sans-serif;
+}
+
+.containerCardsFavoris {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media screen and (min-width: 765px) {
+  .containerCardsFavoris {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
