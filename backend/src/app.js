@@ -113,13 +113,15 @@ app.use(express.static(reactBuildPath));
 
 app.get("*", (req, res) => {
   console.log("*");
-  console.log(req.url)
+  console.log(req.url);
+  console.log(reactBuildPath);
   res.sendFile(`${reactBuildPath}/index.html`);
 });
 
 app.all("/*", (req, res) => {
   console.log("all /*");
   console.log(req.url);
+  console.log(reactBuildPath);
   res.sendFile(`${reactBuildPath}/index.html`);
 };
 
