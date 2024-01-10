@@ -5,6 +5,7 @@ import NavbarDesktop from "./components/navbarDesktop/NavbarDesktop";
 import FooterDesktop from "./components/footerDesktop/FooterDesktop";
 import SuperheroContext from "./contexts/SuperheroContext";
 import "./App.css";
+import logoImg from "./assets/image.png";
 
 let start = true;
 
@@ -48,7 +49,7 @@ function App() {
     <div className="App">
       <div className="header">
         <div className="logo logotop">
-          <img src="image.png" alt="Logo" className="logotopmobile" />
+          <img src={logoImg} alt="Logo" className="logotopmobile" />
         </div>
       </div>
       <NavbarDesktop />

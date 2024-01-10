@@ -4,6 +4,7 @@ import axios from "axios";
 import Cards from "../components/cards/Cards";
 import ToggleRacePicker from "../components/ToggleRacePicker";
 import "./Cardheros.css";
+import filterImg from "../assets/filter.png";
 
 function Cardheros() {
   const superheros = useLoaderData();
@@ -54,7 +55,7 @@ function Cardheros() {
       )}
       <div className="filter">
         <button type="button" onClick={toggleRacePicker}>
-          <img src="filter.png" alt="Filter" />
+          <img src={filterImg} alt="Filter" />
         </button>
       </div>
       <div className="containerCards">
